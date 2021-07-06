@@ -17,7 +17,9 @@
         <b>Sold Out!!</b>
       </div>
     <% else %>
-      <%= link_to '購入する', order_item_path(item.id), method: :post %>
+      <% if user_signed_in? %>
+        <%= link_to '購入する', order_item_path(item.id), method: :post %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
